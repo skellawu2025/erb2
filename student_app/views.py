@@ -3,6 +3,7 @@ from .models import Student
 
 
 
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -39,11 +40,10 @@ def student(request, pk):
         student.save()
         return HttpResponse("<h1>Student Update Successfully</h1>")
 
-def student_delete(request):
-     if request.method == "POST":
-        name = request.POST.get("name")
-        student = Student.objects.get(name=name)
+def student_delete(request, pk):
+    #  if request.method == "POST":
+    #     name = request.POST.get("name")
+        student = Student.objects.get(pk=pk)
         student.delete()
-        return render(request, 'student_delete.html')
-
-    # return HttpResponse("<h1>Student Delete Successfully</h1>")
+        # return render(request, 'student_delete.html')
+        return HttpResponse("<h1>Student Delete Succesfully</h1>")

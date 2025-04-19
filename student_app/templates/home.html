@@ -1,11 +1,11 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block title %}Students Home{% endblock %}
 
 
 {% block content %}Students Home Content
 
-<form method="post" action={% url "student_delete" %}>
+{% comment %} <form method="post" action={% url "student_delete" %}>
     {% csrf_token %}  <!-- This is mandatory -->
     <input type="text" name="name" placeholder="Student name">
     <button type="submit">Delete Student</button>
@@ -13,6 +13,6 @@
 
 {% if error %}
     <p style="color: red;">{{ error }}</p>
-{% endif %}
+{% endif %} {% endcomment %}
 
 {% endblock %}
